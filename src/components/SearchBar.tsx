@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import { Input } from './ui/input';
+import { Button } from './ui/button';
 
 interface SearchBarProps {
     onSearch: (query: string) => void;
@@ -15,17 +17,17 @@ export default function SearchBar({onSearch}: SearchBarProps){
         onSearch(query);
     }
   return (
-    <form onSubmit={handleSearch} className="p-4">
-    <input
+    <form onSubmit={handleSearch} className="px-12 py-6 flex w-full mt-12 justify-center items-center gap-4 z-10">
+    <Input
       type="text"
       value={query}
       onChange={(e) => setQuery(e.target.value)}
       placeholder="Search images..."
-      className="w-full p-2 border rounded text-black"
+      className='max-w-4xl'
     />
-    <button type="submit" className="mt-2 w-full bg-blue-500 text-white py-2 rounded">
+    <Button type="submit">
       Search
-    </button>
+    </Button>
   </form>
   )
 }
