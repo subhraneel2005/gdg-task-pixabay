@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image } from '@/helper';
+import { Images } from '@/helper';
 
 interface ImageDetailProps {
-  image: Image | null;
+  image: Images | null;
 }
 
 export default function ImageDetail({ image }: ImageDetailProps) {

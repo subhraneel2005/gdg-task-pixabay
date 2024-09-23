@@ -97,16 +97,12 @@ body {
   }
 }
 
-body h1, h2{
+body h1{
 font-weight: 400;
-font-size: 64px;
-line-height: 80px;
 color: #FFFFFF;
 }
 
 body p{
 font-weight: 400;
-font-size: 20px;
-line-height: 25px;
 }
 
