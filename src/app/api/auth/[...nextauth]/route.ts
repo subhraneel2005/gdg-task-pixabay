@@ -1,11 +1,11 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
-import { PrismaAdapter } from "@auth/prisma-adapter"; // Correct import for Prisma Adapter
-import prisma from "@/prisma"; // Ensure your Prisma client is correctly imported
+import { PrismaAdapter } from '@auth/prisma-adapter';
+import prisma from '@/prisma';
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma), // Correct Prisma Adapter setup
+  adapter: PrismaAdapter(prisma),
   pages: {
     signIn: '/login', // Custom sign-in page
   },
@@ -22,5 +22,6 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET!,
 };
 
-export const handler = NextAuth(authOptions);
+// The default export for NextAuth API routes
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
