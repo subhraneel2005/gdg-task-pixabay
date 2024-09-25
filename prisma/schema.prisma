@@ -8,18 +8,17 @@ generator client {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id               String            @id @default(auto()) @map("_id") @db.ObjectId
+  name             String?
+  email            String?           @unique
+  emailVerified    DateTime?
+  image            String?
+  accounts         Account[]
+  sessions         Session[]
+  bookmarkedImages BookmarkedImage[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  bookmarks Bookmark[]
 }
 
 model Account {
@@ -64,23 +63,15 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Image {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
+model BookmarkedImage {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String   @db.ObjectId
+  imageId       Int
   webformatURL  String
   largeImageURL String
-  user          String
+  uploader      String
   tags          String
-  bookmarkId    String @db.ObjectId
-
-  bookmark Bookmark @relation(fields: [bookmarkId], references: [id])
-}
-
-model Bookmark {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId    String   @db.ObjectId
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  images Image[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SessionProviderWrapper from "@/providers/SessionProviderWrapper";
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 
 export const metadata: Metadata = {
@@ -13,10 +16,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body>
-        {children}
+        <SessionProviderWrapper>
+            <Toaster richColors position="top-right"/>
+            <ThemeProvider 
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
+              {children}
+            </ThemeProvider>
+        </SessionProviderWrapper>
       </body>
     </html>
   );
 }
+      

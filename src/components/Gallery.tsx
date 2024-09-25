@@ -45,6 +45,7 @@ export default function Gallery({ query }: { query: string }) {
                     {open && selectedImage && (
                         <Suspense fallback={<p>...Loading</p>}>
                             <ImageDialog
+                                id={selectedImage.id}
                                 open={open}
                                 setOpen={setOpen}
                                 image={selectedImage.webformatURL}

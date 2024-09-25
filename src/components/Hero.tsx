@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import Gallery from './Gallery';
-import { BackgroundBeams } from './ui/background-beams';
 import Nav from './Nav';
 
 export default function Hero() {
@@ -17,7 +16,7 @@ export default function Hero() {
                     <h1 className='px-4 text-[40px] md:text-[64px] flex flex-wrap leading-tight'>Discover and Explore</h1>
                     <h1 className='px-4 text-[40px] md:text-[64px] flex flex-wrap leading-tight'>Stunning Images</h1>
                
-                <div className='mt-8 md:mt-12 text-gray-300'>
+                <div className='mt-8 md:mt-12 text-gray-500'>
                     <p className='text-[14px] md:text-lg flex flex-wrap px-4'>Welcome to my image gallery, where you can effortlessly search and explore</p>
                     <p className='text-[14px] md:text-lg flex flex-wrap px-4'> a vast collection of stunning visuals from Pixabay.</p>
                 </div>
