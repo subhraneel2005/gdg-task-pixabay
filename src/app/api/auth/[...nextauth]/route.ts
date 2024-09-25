@@ -4,8 +4,8 @@ import GoogleProvider from "next-auth/providers/google"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import prisma from "@/prisma";
 
-export const authOptions = {
-    adapter: PrismaAdapter(prisma),
+export const authOptions: AuthOptions = {
+    adapter: PrismaAdapter(prisma) as any,
     pages:{
         signIn: '/login',
     },
@@ -23,5 +23,5 @@ export const authOptions = {
 }
 
 
-export const handler = NextAuth(authOptions as AuthOptions);
+export const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
