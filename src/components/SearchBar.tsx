@@ -29,7 +29,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search images..."
-                className='max-w-4xl'
+                className='max-w-xl'
             />
             <Button type="submit">
                 Search
